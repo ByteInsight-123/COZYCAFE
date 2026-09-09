@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cozy Café - Sign Up</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f8f1e8;
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .signup-container {
+            width: 400px;
+            background: white;
+
+            padding: 40px;
+
+            border-radius: 20px;
+
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .logo {
+            text-align: center;
+            font-size: 32px;
+            font-weight: bold;
+            color: #2d1b12;
+
+            margin-bottom: 10px;
+        }
+
+        .logo span {
+            color: #c27b3a;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #777;
+
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+
+            margin-bottom: 8px;
+
+            font-weight: bold;
+
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+
+            padding: 13px;
+
+            border: 1px solid #ddd;
+
+            border-radius: 10px;
+
+            font-size: 15px;
+
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #c27b3a;
+        }
+
+        button {
+            width: 100%;
+
+            padding: 14px;
+
+            border: none;
+
+            border-radius: 10px;
+
+            background: #c27b3a;
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #a9652d;
+        }
+
+        #message {
+            margin-top: 20px;
+
+            text-align: center;
+
+            font-weight: bold;
+        }
+
+        .login-link {
+            text-align: center;
+
+            margin-top: 20px;
+
+            color: #666;
+        }
+
+        .login-link a {
+            color: #c27b3a;
+
+            text-decoration: none;
+
+            font-weight: bold;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="signup-container">
+
+        <div class="logo">
+            Cozy<span>Café</span>
+        </div>
+
+        <p class="subtitle">
+            Create your account ☕
+        </p>
+
+        <form id="signupForm">
+
+            <div class="form-group">
+
+                <label for="name">
+                    Name
+                </label>
+
+                <input
+                    type="text"
+                    id="name"
+                    placeholder="Enter your name"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="email">
+                    Email
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="password">
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Create a password"
+                    required
+                >
+
+            </div>
+
+
+            <button type="submit">
+                Create Account
+            </button>
+
+        </form>
+
+
+        <div id="message"></div>
+
+
+        <div class="login-link">
+
+            Already have an account?
+
+            <a href="login.html">
+                Sign In
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        const signupForm = document.getElementById("signupForm");
+
+        const message = document.getElementById("message");
+
+
+        signupForm.addEventListener("submit", async function(event) {
+
+            event.preventDefault();
+
+
+            const name = document.getElementById("name").value;
+
+            const email = document.getElementById("email").value;
+
+            const password = document.getElementById("password").value;
+
+
+            message.textContent = "Creating account...";
+
+
+            try {
+
+                const response = await fetch(
+                    "http://localhost:5000/api/signup",
+                    {
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+
+                        body: JSON.stringify({
+                            name: name,
+                            email: email,
+                            password: password
+                        })
+                    }
+                );
+
+
+                const data = await response.json();
+
+
+                if (data.success) {
+
+                    message.textContent =
+                        "✅ Account created successfully!";
+
+                    signupForm.reset();
+
+                } else {
+
+                    message.textContent =
+                        "❌ " + data.message;
+
+                }
+
+            } catch (error) {
+
+                console.error(error);
+
+                message.textContent =
+                    "❌ Cannot connect to server.";
+
+            }
+
+        });
+
+    </script>
+
+</body>
+
+</html>

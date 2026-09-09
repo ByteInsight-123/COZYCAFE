@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Sign In | Cozy Café</title>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+
+            min-height: 100vh;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            font-family: Arial, sans-serif;
+
+            background: #f7eee5;
+
+        }
+
+
+        .container {
+
+            width: 420px;
+
+            background: white;
+
+            padding: 40px;
+
+            border-radius: 20px;
+
+            box-shadow:
+                0 10px 40px
+                rgba(0, 0, 0, 0.12);
+
+        }
+
+
+        .logo {
+
+            text-align: center;
+
+            font-family: Georgia, serif;
+
+            font-size: 36px;
+
+            font-weight: bold;
+
+            margin-bottom: 10px;
+
+            color: #2d1b12;
+
+        }
+
+
+        .logo span {
+
+            color: #c47a3c;
+
+        }
+
+
+        .subtitle {
+
+            text-align: center;
+
+            color: #777;
+
+            margin-bottom: 30px;
+
+        }
+
+
+        .form-group {
+
+            margin-bottom: 18px;
+
+        }
+
+
+        label {
+
+            display: block;
+
+            margin-bottom: 7px;
+
+            font-weight: bold;
+
+            color: #3b2920;
+
+        }
+
+
+        input {
+
+            width: 100%;
+
+            padding: 13px;
+
+            border: 1px solid #ddd;
+
+            border-radius: 10px;
+
+            font-size: 15px;
+
+            outline: none;
+
+        }
+
+
+        input:focus {
+
+            border-color: #c47a3c;
+
+            box-shadow:
+                0 0 0 3px
+                rgba(196, 122, 60, 0.12);
+
+        }
+
+
+        button {
+
+            width: 100%;
+
+            padding: 14px;
+
+            border: none;
+
+            border-radius: 10px;
+
+            background: #c47a3c;
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            margin-top: 10px;
+
+        }
+
+
+        button:hover {
+
+            background: #a9632f;
+
+        }
+
+
+        button:disabled {
+
+            background: #aaa;
+
+            cursor: not-allowed;
+
+        }
+
+
+        .message {
+
+            margin-top: 18px;
+
+            padding: 12px;
+
+            border-radius: 8px;
+
+            text-align: center;
+
+            display: none;
+
+        }
+
+
+        .success {
+
+            display: block;
+
+            background: #e8f7e8;
+
+            color: #28752d;
+
+        }
+
+
+        .error {
+
+            display: block;
+
+            background: #fdeaea;
+
+            color: #b52b2b;
+
+        }
+
+
+        .signup-link {
+
+            text-align: center;
+
+            margin-top: 25px;
+
+            color: #666;
+
+        }
+
+
+        .signup-link a {
+
+            color: #c47a3c;
+
+            font-weight: bold;
+
+            text-decoration: none;
+
+        }
+
+
+        .signup-link a:hover {
+
+            text-decoration: underline;
+
+        }
+
+
+        .back {
+
+            display: block;
+
+            text-align: center;
+
+            margin-top: 18px;
+
+            color: #777;
+
+            text-decoration: none;
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <div class="container">
+
+
+        <div class="logo">
+
+            Cozy<span>Café</span>
+
+        </div>
+
+
+        <p class="subtitle">
+
+            Welcome back ☕
+
+        </p>
+
+
+        <form id="signinForm">
+
+
+            <div class="form-group">
+
+                <label for="email">
+
+                    Email
+
+                </label>
+
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="password">
+
+                    Password
+
+                </label>
+
+
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Enter your password"
+                    required
+                >
+
+            </div>
+
+
+            <button
+                type="submit"
+                id="signinButton"
+            >
+
+                Sign In
+
+            </button>
+
+
+        </form>
+
+
+        <div
+            id="message"
+            class="message"
+        ></div>
+
+
+        <div class="signup-link">
+
+            Don't have an account?
+
+            <a href="signup.html">
+
+                Create Account
+
+            </a>
+
+        </div>
+
+
+        <a
+            href="index.html"
+            class="back"
+        >
+
+            ← Back to Cozy Café
+
+        </a>
+
+
+    </div>
+
+
+    <script>
+
+
+        const signinForm =
+            document.getElementById("signinForm");
+
+
+        const message =
+            document.getElementById("message");
+
+
+        const signinButton =
+            document.getElementById("signinButton");
+
+
+        signinForm.addEventListener(
+            "submit",
+            async function(event) {
+
+                event.preventDefault();
+
+
+                const email =
+                    document.getElementById("email")
+                    .value
+                    .trim();
+
+
+                const password =
+                    document.getElementById("password")
+                    .value;
+
+
+                message.className = "message";
+
+                message.textContent = "";
+
+                signinButton.disabled = true;
+
+                signinButton.textContent =
+                    "Signing In...";
+
+
+                try {
+
+
+                    const response =
+                        await fetch("/api/signin", {
+
+                            method: "POST",
+
+                            headers: {
+
+                                "Content-Type":
+                                    "application/json"
+
+                            },
+
+                            body: JSON.stringify({
+
+                                email: email,
+
+                                password: password
+
+                            })
+
+                        });
+
+
+                    const data =
+                        await response.json();
+
+
+                    if (data.success) {
+
+
+                        message.className =
+                            "message success";
+
+
+                        message.textContent =
+                            "✅ Sign in successful!";
+
+
+                        localStorage.setItem(
+                            "cozyCafeUser",
+                            JSON.stringify(data.user)
+                        );
+
+
+                        setTimeout(function() {
+
+                            window.location.href =
+                                "index.html";
+
+                        }, 1000);
+
+
+                    } else {
+
+
+                        message.className =
+                            "message error";
+
+
+                        message.textContent =
+                            "❌ " + data.message;
+
+
+                        signinButton.disabled =
+                            false;
+
+
+                        signinButton.textContent =
+                            "Sign In";
+
+                    }
+
+
+                } catch (error) {
+
+
+                    console.log(error);
+
+
+                    message.className =
+                        "message error";
+
+
+                    message.textContent =
+                        "❌ Unable to connect to server";
+
+
+                    signinButton.disabled =
+                        false;
+
+
+                    signinButton.textContent =
+                        "Sign In";
+
+                }
+
+            }
+        );
+
+
+    </script>
+
+
+</body>
+
+</html>

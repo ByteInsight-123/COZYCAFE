@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Cozy Café | My Favorites</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+    <style>
+
+        .favorites-page {
+            min-height: 70vh;
+            padding: 100px 7%;
+        }
+
+        .favorites-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .favorites-header h1 {
+            font-size: 48px;
+            margin-bottom: 12px;
+        }
+
+        .favorites-header p {
+            color: #777;
+        }
+
+        .favorites-grid {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(250px, 1fr));
+
+            gap: 28px;
+        }
+
+        .favorite-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow:
+                0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        .favorite-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .favorite-content {
+            padding: 22px;
+        }
+
+        .favorite-content h3 {
+            margin-bottom: 10px;
+        }
+
+        .favorite-content p {
+            color: #777;
+            margin-bottom: 15px;
+        }
+
+        .favorite-price {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 18px;
+        }
+
+        .favorite-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .favorite-buttons button,
+        .favorite-buttons a {
+            flex: 1;
+            border: none;
+            padding: 12px;
+            border-radius: 10px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .remove-favorite {
+            background: #f3e5d8;
+            color: #6f3f1e;
+        }
+
+        .back-menu {
+            background: #6f3f1e;
+            color: white;
+        }
+
+        .empty-favorites {
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .empty-favorites .heart {
+            font-size: 70px;
+            margin-bottom: 20px;
+        }
+
+        .empty-favorites h2 {
+            margin-bottom: 12px;
+        }
+
+        .empty-favorites p {
+            color: #777;
+            margin-bottom: 25px;
+        }
+
+        @media (max-width: 600px) {
+
+            .favorites-page {
+                padding: 70px 5%;
+            }
+
+            .favorites-header h1 {
+                font-size: 36px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <main class="favorites-page">
+
+        <div class="favorites-header">
+
+            <h1>
+                ❤️ My Favorites
+            </h1>
+
+            <p>
+                Your favorite Cozy Café treats in one place.
+            </p>
+
+        </div>
+
+
+        <div
+            class="favorites-grid"
+            id="favoritesGrid"
+        ></div>
+
+
+        <div
+            class="empty-favorites"
+            id="emptyFavorites"
+            style="display:none;"
+        >
+
+            <div class="heart">
+                🤍
+            </div>
+
+            <h2>
+                No favorites yet
+            </h2>
+
+            <p>
+                Save your favorite coffee and treats
+                from our menu.
+            </p>
+
+            <a
+                href="index.html#menu"
+                class="back-menu"
+                style="
+                    display:inline-block;
+                    padding:14px 25px;
+                    border-radius:10px;
+                "
+            >
+                Explore Menu
+            </a>
+
+        </div>
+
+    </main>
+
+
+    <script src="favorites.js"></script>
+
+</body>
+
+</html>

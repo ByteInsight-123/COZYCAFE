@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#8b572a">
+    <meta name="description" content="Cozy Cafe - Fresh coffee, homemade food and delicious desserts.">
+    <title>Cozy Café | Fresh. Warm. Homemade.</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+    <div class="announcement">
+        <p>☕ Freshly brewed happiness is waiting for you.</p>
+    </div>
+
+    <header class="navbar">
+        <a href="#home" class="logo">Cozy<span>Café</span></a>
+
+        <button class="menu-toggle" id="menuToggle">☰</button>
+
+        <nav class="nav-links" id="navLinks">
+            <a href="#home">Home</a>
+            <a href="#menu">Menu</a>
+            <a href="#about">About</a>
+            <a href="#specials">Specials</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="nav-actions">
+            <a href="login.html" class="auth-btn">
+        Sign In
+    </a>
+
+    <a href="signup.html" class="auth-btn signup-btn">
+        Sign Up
+    </a>
+
+    <button class="icon-btn" id="themeToggle" title="Toggle theme">
+        🌙
+    </button>
+
+    <button class="cart-btn" id="cartButton">
+        🛒
+        <span id="cartCount">0</span>
+    </button>
+
+    <a href="#reservation" class="primary-btn nav-book">
+        Book a Table
+    </a>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <span class="eyebrow">WELCOME TO COZY CAFÉ</span>
+                <h1>Your daily cup of <em>happiness.</em></h1>
+                <p>Fresh coffee, homemade food and sweet little moments — all served in a place that feels like home.</p>
+
+                <div class="hero-buttons">
+                    <a href="#menu" class="primary-btn">Explore Menu →</a>
+                    <a href="#reservation" class="secondary-btn">Reserve a Table</a>
+                </div>
+
+                <div class="hero-stats">
+                    <div>
+                        <strong>4.9★</strong>
+                        <span>Customer Rating</span>
+                    </div>
+                    <div>
+                        <strong>16+</strong>
+                        <span>Menu Choices</span>
+                    </div>
+                    <div>
+                        <strong>8 AM</strong>
+                        <span>Open Daily</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1200&q=90" alt="Cozy cafe coffee">
+                <div class="floating-card">
+                    <span>☕</span>
+                    <div>
+                        <strong>Freshly Brewed</strong>
+                        <small>Made with love</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="status-strip">
+            <div>
+                <span class="status-dot"></span>
+                <strong id="openStatus">Checking status...</strong>
+            </div>
+            <p>Monday – Sunday · 8:00 AM – 10:00 PM</p>
+            <span>📍 Vijayanagar, Bangalore</span>
+        </section>
+
+        <section class="section menu-section" id="menu">
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">WHAT WE SERVE</span>
+                    <h2>Our Menu</h2>
+                    <p>Simple ingredients. Big flavors.</p>
+                </div>
+            </div>
+
+            <div class="menu-controls">
+                <div class="search-box">
+                    <span>🔎</span>
+                    <input type="text" id="menuSearch" placeholder="Search coffee, food, dessert...">
+                    <button id="clearSearch">×</button>
+                </div>
+
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-category="all">All</button>
+                    <button class="filter-btn" data-category="coffee">Coffee</button>
+                    <button class="filter-btn" data-category="tea">Tea</button>
+                    <button class="filter-btn" data-category="food">Food</button>
+                    <button class="filter-btn" data-category="desserts">Desserts</button>
+                </div>
+            </div>
+
+            <div class="menu-grid" id="menuGrid">
+                <div class="loading">Loading our delicious menu... ☕</div>
+            </div>
+
+            <div class="no-results" id="noResults">
+                <div>🔎</div>
+                <h3>Nothing found</h3>
+                <p>Try another search or category.</p>
+            </div>
+        </section>
+
+        <section class="story-section section" id="about">
+            <div class="story-image">
+                <img src="https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=1000&q=85" alt="Cozy Cafe interior">
+            </div>
+
+            <div class="story-content">
+                <span class="eyebrow">OUR STORY</span>
+                <h2>A little corner of comfort in the city.</h2>
+                <p>Cozy Café started with one simple idea — create a place where people could slow down, enjoy great coffee and spend time with the people they love.</p>
+                <p>Every drink is carefully prepared and every plate is made with fresh ingredients. Whether you're working, catching up with friends or simply enjoying some quiet time, there's always a seat waiting for you.</p>
+
+                <div class="story-features">
+                    <div>
+                        <span>🌱</span>
+                        <strong>Fresh Ingredients</strong>
+                    </div>
+                    <div>
+                        <span>❤️</span>
+                        <strong>Made With Love</strong>
+                    </div>
+                    <div>
+                        <span>☕</span>
+                        <strong>Premium Coffee</strong>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="special-section section" id="specials">
+            <div class="section-heading centered">
+                <span class="eyebrow">DON'T MISS THESE</span>
+                <h2>Today's Specials</h2>
+                <p>A few of our favorites, specially prepared for you.</p>
+            </div>
+
+            <div class="special-grid">
+                <article class="special-card">
+                    <span class="special-icon">☕</span>
+                    <span class="tag">CHEF'S PICK</span>
+                    <h3>Pumpkin Spice Latte</h3>
+                    <p>Warm espresso, creamy milk, real pumpkin and aromatic spices.</p>
+                    <strong>₹210</strong>
+                </article>
+
+                <article class="special-card featured">
+                    <span class="special-icon">🍫</span>
+                    <span class="tag">BESTSELLER</span>
+                    <h3>Chocolate Lava Cake</h3>
+                    <p>Warm chocolate cake with a rich molten center.</p>
+                    <strong>₹240</strong>
+                </article>
+
+                <article class="special-card">
+                    <span class="special-icon">🍓</span>
+                    <span class="tag">SEASONAL</span>
+                    <h3>Strawberry Tart</h3>
+                    <p>Fresh strawberries, smooth cream and buttery pastry.</p>
+                    <strong>₹200</strong>
+                </article>
+            </div>
+        </section>
+
+        <section class="gallery-section section" id="gallery">
+            <div class="section-heading centered">
+                <span class="eyebrow">A GLIMPSE INSIDE</span>
+                <h2>Our Gallery</h2>
+                <p>Come for the coffee. Stay for the atmosphere.</p>
+            </div>
+
+            <div class="gallery-grid">
+                <div class="gallery-item large" data-image="https://images.unsplash.com/photo-1493857671505-72967e2e2760?auto=format&fit=crop&w=1400&q=90">
+                    <img src="https://images.unsplash.com/photo-1493857671505-72967e2e2760?auto=format&fit=crop&w=900&q=85" alt="Cafe interior">
+                </div>
+                <div class="gallery-item" data-image="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1000&q=90">
+                    <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=700&q=85" alt="Cafe table">
+                </div>
+                <div class="gallery-item" data-image="https://images.unsplash.com/photo-1512568400610-62da28bc8a13?auto=format&fit=crop&w=1000&q=90">
+                    <img src="https://images.unsplash.com/photo-1512568400610-62da28bc8a13?auto=format&fit=crop&w=700&q=85" alt="Coffee">
+                </div>
+                <div class="gallery-item" data-image="https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=1000&q=90">
+                    <img src="https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=700&q=85" alt="Cafe food">
+                </div>
+                <div class="gallery-item" data-image="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1000&q=90">
+                    <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=700&q=85" alt="Cafe seating">
+                </div>
+            </div>
+        </section>
+
+        <section class="reservation-section section" id="reservation">
+            <div class="reservation-info">
+                <span class="eyebrow">YOUR TABLE AWAITS</span>
+                <h2>Make a reservation.</h2>
+                <p>Planning a coffee date, family lunch or evening catch-up? Reserve your table and we'll have everything ready for you.</p>
+
+                <div class="hours">
+                    <h3>Opening Hours</h3>
+                    <p>Monday – Sunday</p>
+                    <strong>8:00 AM – 10:00 PM</strong>
+                </div>
+            </div>
+
+            <form class="reservation-form" id="reservationForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" placeholder="Your name" required>
+                        <small class="error" id="nameError"></small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="you@example.com" required>
+                        <small class="error" id="emailError"></small>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="date">Date</label>
+                        <input type="date" id="date" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="guests">Guests</label>
+                        <select id="guests" required>
+                            <option value="">Select guests</option>
+                            <option value="1">1 Guest</option>
+                            <option value="2">2 Guests</option>
+                            <option value="3">3 Guests</option>
+                            <option value="4">4 Guests</option>
+                            <option value="5">5 Guests</option>
+                            <option value="6">6 Guests</option>
+                            <option value="7">7 Guests</option>
+                            <option value="8">8 Guests</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="specialRequest">Special Request</label>
+                    <textarea id="specialRequest" placeholder="Birthday? Window seat? Tell us..."></textarea>
+                </div>
+
+                <button type="submit" class="primary-btn full-width">Reserve My Table →</button>
+
+                <div class="form-success" id="formSuccess">
+                    <span>🎉</span>
+                    <div>
+                        <strong>Reservation confirmed!</strong>
+                        <p id="reservationMessage">We'll see you at Cozy Café.</p>
+                    </div>
+                </div>
+            </form>
+        </section>
+
+        <section class="contact-section section" id="contact">
+            <div class="contact-card">
+                <span>📍</span>
+                <h3>Location</h3>
+                <p>Marenahalli,<br>Vijayanagar, Bangalore<br>560040</p>
+            </div>
+
+            <div class="contact-card">
+                <span>📞</span>
+                <h3>Phone</h3>
+                <p>84311 32077</p>
+                <a href="tel:8431132077">Call us →</a>
+            </div>
+
+            <div class="contact-card">
+                <span>✉️</span>
+                <h3>Email</h3>
+                <p>hello@cozycafe.com</p>
+                <a href="mailto:hello@cozycafe.com">Email us →</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-main">
+            <div>
+                <a href="#home" class="logo">Cozy<span>Café</span></a>
+                <p>Fresh. Warm. Homemade.</p>
+            </div>
+
+            <div class="footer-links">
+                <a href="#menu">Menu</a>
+                <a href="#about">About</a>
+                <a href="#reservation">Reservations</a>
+                <a href="#contact">Contact</a>
+            </div>
+
+            <div class="social-links">
+                <span>Follow us</span>
+                <div>
+                    <a href="#">Instagram</a>
+                    <a href="#">Facebook</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© <span id="currentYear"></span> Cozy Café. All rights reserved.</p>
+            <p>Made with ☕ & ❤️</p>
+        </div>
+    </footer>
+
+    <div class="cart-overlay" id="cartOverlay">
+        <aside class="cart-drawer">
+            <div class="drawer-header">
+                <div>
+                    <span class="eyebrow">YOUR ORDER</span>
+                    <h2>Your Cart</h2>
+                </div>
+                <button class="close-btn" id="cartClose">×</button>
+            </div>
+
+            <div class="cart-items" id="cartItems"></div>
+
+            <div class="empty-cart" id="emptyCart">
+                <span>🛒</span>
+                <h3>Your cart is empty</h3>
+                <p>Add something delicious from our menu.</p>
+                <button class="secondary-btn" id="startShopping">Explore Menu</button>
+            </div>
+
+            <div class="cart-footer" id="cartFooter">
+                <div class="cart-total">
+                    <span>Total</span>
+                    <strong id="cartTotal">₹0</strong>
+                </div>
+                <button class="primary-btn full-width" id="checkoutButton">Proceed to Checkout →</button>
+            </div>
+        </aside>
+    </div>
+
+    <div class="modal-overlay" id="checkoutModal">
+        <div class="checkout-modal">
+            <button class="modal-close" id="checkoutClose">×</button>
+
+            <span class="eyebrow">ALMOST THERE</span>
+            <h2>Complete Your Order</h2>
+            <p class="modal-subtitle">Enter your details and we'll prepare your order.</p>
+
+            <form id="checkoutForm">
+                <div class="form-group">
+                    <label for="customerName">Full Name</label>
+                    <input type="text" id="customerName" required placeholder="Your name">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="customerEmail">Email</label>
+                        <input type="email" id="customerEmail" required placeholder="you@example.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="customerPhone">Phone</label>
+                        <input type="tel" id="customerPhone" required placeholder="9876543210">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Payment Method</label>
+                    <div class="payment-options">
+                        <label>
+                            <input type="radio" name="payment" value="Cash" checked>
+                            <span>💵 Cash</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="payment" value="UPI">
+                            <span>📱 UPI</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="payment" value="Card">
+                            <span>💳 Card</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="checkout-summary">
+                    <span>Order Total</span>
+                    <strong id="checkoutTotal">₹0</strong>
+                </div>
+
+                <button class="primary-btn full-width" type="submit">Place Order →</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="orderSuccess">
+        <div class="success-modal">
+            <div class="success-icon">🎉</div>
+            <h2>Order Confirmed!</h2>
+            <p>Your order has been received and our team is getting it ready.</p>
+            <div class="order-number">
+                <span>Order Number</span>
+                <strong id="orderNumber"></strong>
+            </div>
+            <button class="primary-btn full-width" id="orderDone">Perfect!</button>
+        </div>
+    </div>
+
+    <div class="lightbox" id="lightbox">
+        <button id="lightboxClose">×</button>
+        <img id="lightboxImage" src="" alt="Gallery image">
+    </div>
+
+    <button class="back-top" id="backToTop">↑</button>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+    "name": "Cozy Café",
+    "short_name": "Cozy Café",
+    "description": "Fresh coffee, homemade food and delicious desserts.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#fffaf4",
+    "theme_color": "#8b572a",
+    "orientation": "portrait-primary",
+    "icons": [
+        {
+            "src": "https://cdn-icons-png.flaticon.com/512/924/924514.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
