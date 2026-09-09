@@ -26,7 +26,7 @@ const toast=document.getElementById("toast");
 
 async function loadMenu(){
     try{
-        const response=await fetch("http://localhost:5000/api/menu");
+        const response = await fetch("/api/menu");
         if(!response.ok)throw new Error("Menu failed");
         menuItems=await response.json();
         renderMenu();
